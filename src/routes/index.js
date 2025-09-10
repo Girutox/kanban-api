@@ -1,8 +1,10 @@
 import { Router } from "express";
-import boardsRoutes from "./boards.js";
+import boardRoutes from "./boardRoutes.js";
+import taskRoutes from "./taskRoutes.js";
 
 const router = Router();
 
-router.use("/boards", boardsRoutes);
+router.use("/boards", boardRoutes);
+router.use("/tasks", taskRoutes);
 
 export default router;
