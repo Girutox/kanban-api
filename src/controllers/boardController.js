@@ -1,8 +1,19 @@
-import { getAllBoards, saveBoard } from "../models/boardModel.js";
+import { getAllBoards, getFullBoard, saveBoard } from "../models/boardModel.js";
 
 export const getAllBoardsHandler = async (req, res) => {
   try {
     const boards = await getAllBoards();
+    res.json(boards);
+  } catch (err) {
+    console.error("Error fetching boards:", err.message);
+    res.status(500).json({ error: "Failed to fetch boards" });
+  }
+};
+
+export const getFullBoardHandler = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const boards = await getFullBoard(id);
     res.json(boards);
   } catch (err) {
     console.error("Error fetching boards:", err.message);
