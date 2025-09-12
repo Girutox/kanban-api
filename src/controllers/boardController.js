@@ -19,7 +19,3 @@ export const saveBoardHandler = async (req, res) => {
     res.status(500).json({ error: "Failed to save board" });
   }
 };
-
-export const dummy = async(req, res) => {
-  res.json({message: "Hello from dummy endpoint"});
-};
