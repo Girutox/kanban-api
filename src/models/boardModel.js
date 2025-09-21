@@ -21,3 +21,8 @@ export const saveBoard = async (board) => {
   );
   return result.rows[0].board;
 };
+
+export const deleteBoard = async (id) => {
+  await pool.query("CALL delete_board($1)", [id]);
+  return { success: true };
+};
