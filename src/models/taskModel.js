@@ -2,7 +2,7 @@ import pool from "../db.js";
 
 export const saveTask = async (task) => {
   const result = await pool.query(
-    "SELECT save_task($1, $2, $3, $4, $5, $6) AS task",
+    "SELECT public.save_task($1, $2, $3, $4, $5, $6) AS task",
     [
       task.id || null,
       task.title,
